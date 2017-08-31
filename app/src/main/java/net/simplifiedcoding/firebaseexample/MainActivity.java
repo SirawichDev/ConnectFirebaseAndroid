@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //Getting values to store
                 String name = editTextName.getText().toString().trim();
-                String address = editTextAddress.getText().toString().trim();
+                String Pic = editTextAddress.getText().toString().trim();
                 String opt = editTextOption.getText().toString().trim();
 
                 //Creating Person object
@@ -53,11 +53,11 @@ public class MainActivity extends AppCompatActivity {
 
                 //Adding values
                 person.setName(name);
-                person.setoption(address);
+                person.setoption(Pic);
                 person.setoption(opt);
 
                 //Storing values to firebase
-                ref.child("person").setValue(person);
+                ref.child(name).setValue(person);
 
 
                 //Value event listener for realtime data update

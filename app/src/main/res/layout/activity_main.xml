@@ -21,11 +21,15 @@
         android:layout_height="wrap_content" />
 
 
-    <Button
-        android:text="Upload Piture"
+    <TextView
+        android:text="Pic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <EditText
+        android:id="@+id/editTextAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <TextView
         android:text="สรรพคุณ"
         android:layout_width="match_parent"
@@ -44,7 +48,7 @@
 
 
     <TextView
-        android:text="Show details"
+        android:text="Persons"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

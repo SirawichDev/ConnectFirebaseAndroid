@@ -6,14 +6,14 @@ package net.simplifiedcoding.firebaseexample;
 public class Person {
 
     private String name;
-    private String address;
+    private String Pic;
     private String op;
 
     public Person() {
 
     }
 
-    public String getName() {
+   public String getName() {
         return name;
     }
 
@@ -21,12 +21,12 @@ public class Person {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+  public String getPic() {
+        return Pic;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPic(String address) {
+        this.Pic = Pic;
     }
 
     public void setoption(String text) {this.op = text;}
