@@ -2,6 +2,7 @@ package net.simplifiedcoding.firebaseexample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,76 +12,76 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.firebase.client.realtime.util.StringListReader;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static net.simplifiedcoding.firebaseexample.Config.FIREBASE_URL;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText editTextName;
     private EditText editTextAddress;
     private  EditText editTextOption;
-    private TextView textViewPersons;
+    private EditText textViewPersons;
     private Button buttonSave;
-
+    private TextView mvalue;
+    private Firebase mRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        mvalue = (TextView) findViewById(R.id.valueview);
         Firebase.setAndroidContext(this);
+        mRef = new Firebase("https://herbs-e7bc7.firebaseio.com/");
+        mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                   Map<String,String>map= dataSnapshot.getValue(Map.class);
+                String name = map.get("name");
+                String option=map.get("option");
+                Log.v("E_VALUE","NAME : "+name);
+                Log.v("E_VALUE","option : "+option);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
         buttonSave = (Button) findViewById(R.id.buttonSave);
         editTextName = (EditText) findViewById(R.id.editTextName);
         editTextAddress = (EditText) findViewById(R.id.editTextAddress);
-        editTextOption = (EditText) findViewById(R.id.editTextOption);
 
-        textViewPersons = (TextView) findViewById(R.id.textViewPersons);
+
+        textViewPersons = (EditText) findViewById(R.id.textViewPersons);
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Creating firebase object
-                Firebase ref = new Firebase(Config.FIREBASE_URL);
+                Firebase ref = new Firebase(FIREBASE_URL);
 
                 //Getting values to store
                 String name = editTextName.getText().toString().trim();
-                String Pic = editTextAddress.getText().toString().trim();
-                String opt = editTextOption.getText().toString().trim();
+                String op = editTextAddress.getText().toString().trim();
+
 
                 //Creating Person object
                 Person person = new Person();
 
                 //Adding values
                 person.setName(name);
-                person.setoption(Pic);
-                person.setoption(opt);
+                person.setoption(op);
+
 
                 //Storing values to firebase
                 ref.child(name).setValue(person);
 
 
-                //Value event listener for realtime data update
-                ref.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot snapshot) {
-                        for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                            //Getting the data from snapshot
-                            Person person = postSnapshot.getValue(Person.class);
 
-                            //Adding it to a string
-                            String string = "Name: "+person.getName()+"\nPic: "+person.getoption()+"\nสรรพคุณ: "+person.getoption();
-
-                            //Displaying it on textview
-                            textViewPersons.setText(string);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(FirebaseError firebaseError) {
-                        System.out.println("The read failed: " + firebaseError.getMessage());
-                    }
-                });
 
             }
         });

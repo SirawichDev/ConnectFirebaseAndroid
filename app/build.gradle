@@ -19,7 +19,7 @@ android {
     }
 
     //Add the following block
-    packagingOptions{
+    packagingOptions {
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/LICENSE-FIREBASE.txt'
         exclude 'META-INF/NOTICE'
@@ -29,9 +29,10 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-
     //Adding Firebase
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.google.firebase:firebase-database:9.2.0'
     compile 'com.firebase:firebase-client-android:2.4.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
 }

@@ -1,5 +1,7 @@
 package net.simplifiedcoding.firebaseexample;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by Belal on 2/23/2016.
  */
@@ -13,9 +15,12 @@ public class Person {
 
     }
 
-   public String getName() {
+
+
+    public String getName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;
@@ -25,11 +30,11 @@ public class Person {
         return Pic;
     }
 
-    public void setPic(String address) {
+    public void setPic(String Pic) {
         this.Pic = Pic;
     }
 
-    public void setoption(String text) {this.op = text;}
+    public void setoption(String op) {this.op = op;}
 
     public String getoption() {return op;}
 }

@@ -22,7 +22,7 @@
 
 
     <TextView
-        android:text="Pic"
+        android:text="สรรพคุณ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -31,18 +31,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
-        android:text="สรรพคุณ"
+        android:text="รูปภาพ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <EditText
+    <Button
         android:id="@+id/editTextOption"
+        android:text="อัพโหลด"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/buttonSave"
-        android:text="เพิ่ม"
+        android:text="เพิ่มลงดาต้าเบส"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -53,9 +54,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <TextView
+    <EditText
         android:id="@+id/textViewPersons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/valueview"
+        android:layout_width="128dp"
+        android:layout_height="65dp"
+        android:text=" "
+        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteY="40dp" />
 
-</LinearLayout>
+
+
+    </LinearLayout>
