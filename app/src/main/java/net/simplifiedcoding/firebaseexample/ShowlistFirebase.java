@@ -18,12 +18,16 @@ public class ShowlistFirebase extends AppCompatActivity {
     private Firebase mRef;
     private ListView mListview;
     private ArrayList<String> mname = new ArrayList<>( );
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle bundle = getIntent().getExtras();
+        String text = bundle.getString("name");
         Firebase.setAndroidContext(this);
         setContentView(R.layout.activity_showlist_firebase);
-        mRef = new Firebase("https://herbs-e7bc7.firebaseio.com/หญ้า");
+
+        mRef = new Firebase("https://herbs-e7bc7.firebaseio.com/"+text);
 
         mListview = (ListView)findViewById(R.id.Listviews);
 
