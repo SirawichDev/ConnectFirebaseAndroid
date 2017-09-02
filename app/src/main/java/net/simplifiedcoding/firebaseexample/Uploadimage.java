@@ -68,27 +68,7 @@ public class Uploadimage extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
-       ests")
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                    dialog.dismiss();
-                    Toast.makeText(getApplicationContext(),"Inmage Uploaded",Toast.LENGTH_SHORT).show();
-                    ImageUploadConfig imgup = new ImageUploadConfig(editext.getText().toString(),taskSnapshot.getDownloadUrl().toString());
-
-                    String uploadedid = mDatabaseRef.push().getKey();
-                    mDatabaseRef.child(uploadedid).setValue(imgup);
-
-
-                }
-            })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-
-                            dialog.dismiss();
+        dialog.dismiss();
                             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
 
 
