@@ -45,17 +45,7 @@ public class Uploadimage extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_uploadimage);
-        mStorageRef = FirebaseStorage.getInstance().getReference();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference(DATABASE_PATH);
 
-        imgview =(ImageView) findViewById(R.id.image_View);
-        editext = (EditText) findViewById(R.id.txtImageName);
-
-
-    }
     public void btnBrow(View v){
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -80,24 +70,7 @@ public class Uploadimage extends AppCompatActivity {
             }
 
 
-        }
-    }
-    public String getImagetxt(Uri uri){
-        ContentResolver contentResolver = getContentResolver();
-        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
-        return MimeTypeMap.getFileExtensionFromUrl(contentResolver.getType(uri));
-
-    }
-    public void btnUpload_Click(View v){
-        if(imgUrl != null){
-          final  ProgressDialog dialog =  new ProgressDialog(this);
-            dialog.setTitle("Uploading image");
-            dialog.show();
-
-            StorageReference ref = mStorageRef.child(STORAGE_URL+System.currentTimeMillis()+"."+getImagetxt(imgUrl));
-
-            ref.putFile(imgUrl).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @SuppressWarnings("VisibleForTests")
+       ests")
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
