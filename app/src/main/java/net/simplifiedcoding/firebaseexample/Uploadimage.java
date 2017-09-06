@@ -37,6 +37,7 @@ public class Uploadimage extends AppCompatActivity {
     private DatabaseReference mDatabaseRef;
     private ImageView imgview;
     private EditText editext;
+    private EditText editTextopt;
     private Uri imgUrl;
 
     public static final String STORAGE_URL = "สมุนไพร/";
@@ -53,6 +54,7 @@ public class Uploadimage extends AppCompatActivity {
 
         imgview =(ImageView) findViewById(R.id.image_View);
         editext = (EditText) findViewById(R.id.txtImageName);
+        editTextopt = (EditText) findViewById(R.id.txtImageoption);
 
 
     }
@@ -103,7 +105,8 @@ public class Uploadimage extends AppCompatActivity {
 
                     dialog.dismiss();
                     Toast.makeText(getApplicationContext(),"Inmage Uploaded",Toast.LENGTH_SHORT).show();
-                    ImageUploadConfig imgup = new ImageUploadConfig(editext.getText().toString(),taskSnapshot.getDownloadUrl().toString());
+                    ImageUploadConfig imgup = new ImageUploadConfig(editext.getText().toString(),taskSnapshot.getDownloadUrl().toString(),editTextopt.getText().toString());
+
 
                     String uploadedid = mDatabaseRef.push().getKey();
                     mDatabaseRef.child(uploadedid).setValue(imgup);

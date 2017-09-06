@@ -40,9 +40,11 @@ public class ImageListAdapter extends ArrayAdapter {
         LayoutInflater inflater = context.getLayoutInflater();
         View v = inflater.inflate(resource,null);
         TextView tvName = (TextView)v.findViewById(R.id.tvImagename);
+        TextView tvOption = (TextView)v.findViewById(R.id.tvImageoption);
         ImageView img = (ImageView)v.findViewById(R.id.imgView);
 
-        tvName.setText(listimg.get(position).getname());
+        tvName.setText("ชื่อสมุนไพร :"+listimg.get(position).getname());
+        tvOption.setText("สรรพคุณ :"+listimg.get(position).getOption());
 
         Glide.with(context).load(listimg.get(position).geturl()).into(img);
         return v;
