@@ -135,4 +135,8 @@ public class Uploadimage extends AppCompatActivity {
 
 
     }
+    public void btnShowlistImage_Click(View v){
+        Intent i = new Intent(Uploadimage.this,FetchImageFirebase.class);
+        startActivity(i);
+    }
 }

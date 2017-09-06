@@ -19,4 +19,5 @@ public class ImageUploadConfig {
         this.name = name;
         this.url = url;
     }
+    public ImageUploadConfig(){}
 }

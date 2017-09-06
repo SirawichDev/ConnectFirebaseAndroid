@@ -31,5 +31,11 @@
         android:text="Upload image"
         android:onClick="btnUpload_Click"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show list image"
+        android:onClick="btnShowlistImage_Click"
+        />
 </LinearLayout>
 
